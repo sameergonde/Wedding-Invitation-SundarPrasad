@@ -1,796 +1,361 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff8ed">
-<meta name="description" content="Wedding invitation of M. Sundarprasad and D. Swathi on Sunday, 22 November 2026 at Mahalakshmi Mahal, Kovilpatti.">
-
-<title>M. Sundarprasad & D. Swathi | Wedding Invitation</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --cream: #fff8ed;
-  --peach: #f6d6c8;
-  --rose: #e9aaa0;
-  --maroon: #8b202b;
-  --green: #164d36;
-  --gold: #c99a3b;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--cream);
-  color: var(--maroon);
-  font-family: 'Cormorant Garamond', serif;
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-section {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  padding: 90px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-h1, h2 {
-  color: var(--green);
-  font-weight: 500;
-}
-
-h1 {
-  font-size: clamp(42px, 8vw, 100px);
-}
-
-h2 {
-  font-size: clamp(34px, 6vw, 65px);
-}
-
-p {
-  font-size: clamp(18px, 2.5vw, 24px);
-  line-height: 1.8;
-}
-
-.script {
-  font-family: 'Great Vibes', cursive;
-}
-
-.gold {
-  color: var(--gold);
-}
-
-.container {
-  width: min(900px, 100%);
-  margin: auto;
-  position: relative;
-  z-index: 3;
-}
-
-.ornament {
-  color: var(--gold);
-  font-size: 30px;
-  letter-spacing: 10px;
-  margin: 25px 0;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(55px);
-  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero {
-  background: radial-gradient(ellipse at center, #fffdf7 20%, #f8dfd2 100%);
-}
-
-.hero-content {
-  padding: 40px 15px;
-  z-index: 4;
-}
-
-.hero h1 {
-  letter-spacing: 2px;
-  margin: 18px 0;
-}
-
-.hero-subtitle {
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-}
-
-.hero-date {
-  font-size: 23px;
-  letter-spacing: 3px;
-}
-
-.hero-decoration {
-  position: absolute;
-  font-size: 45px;
-  color: var(--gold);
-  opacity: .7;
-  animation: float 5s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.hero-decoration:nth-child(1) {
-  top: 15%;
-  left: 10%;
-}
-
-.hero-decoration:nth-child(2) {
-  top: 20%;
-  right: 10%;
-  animation-delay: 1s;
-}
-
-.hero-decoration:nth-child(3) {
-  bottom: 15%;
-  left: 15%;
-  animation-delay: 2s;
-}
-
-.hero-decoration:nth-child(4) {
-  bottom: 15%;
-  right: 15%;
-  animation-delay: 3s;
-}
-
-.scroll-hint {
-  position: absolute;
-  bottom: 30px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
-  letter-spacing: 4px;
-  animation: pulse 2s infinite;
-}
-
-.curtain-section {
-  min-height: 110vh;
-  background: radial-gradient(ellipse at center, #fff9ed 20%, #f1d4c8 100%);
-}
-
-.curtain-frame {
-  position: relative;
-  width: min(900px, 100%);
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.curtain {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 50%;
-  z-index: 5;
-  background: repeating-linear-gradient(90deg, #8b202b 0px, #a8323b 18px, #7a1724 35px, #a8323b 52px);
-  box-shadow: inset 0 0 45px #4b1019;
-  transition: transform 2.5s cubic-bezier(.7,0,.2,1);
-}
-
-.curtain.left {
-  left: 0;
-  transform-origin: left;
-  border-right: 4px solid var(--gold);
-}
-
-.curtain.right {
-  right: 0;
-  transform-origin: right;
-  border-left: 4px solid var(--gold);
-}
-
-.curtain-section.open .curtain.left {
-  transform: translateX(-105%);
-}
-
-.curtain-section.open .curtain.right {
-  transform: translateX(105%);
-}
-
-.curtain-content {
-  position: relative;
-  z-index: 2;
-  padding: 50px 20px;
-}
-
-.curtain-content h2 {
-  font-size: clamp(35px, 7vw, 80px);
-}
-
-.couple-section {
-  background: linear-gradient(180deg, #fff9ed, #f7ded5);
-}
-
-.couple {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 15px;
-  margin: 45px auto;
-  height: 300px;
-  animation: coupleFloat 4s ease-in-out infinite;
-}
-
-.person {
-  position: relative;
-  width: 125px;
-  height: 270px;
-  flex-shrink: 0;
-}
-
-.head {
-  position: absolute;
-  width: 65px;
-  height: 75px;
-  border-radius: 50%;
-  background: #b87553;
-  top: 0;
-  left: 30px;
-}
-
-.hair {
-  position: absolute;
-  width: 70px;
-  height: 45px;
-  background: #2a1712;
-  border-radius: 50% 50% 15% 15%;
-  top: -5px;
-  left: 27px;
-}
-
-.groom .body {
-  position: absolute;
-  top: 78px;
-  left: 5px;
-  width: 115px;
-  height: 190px;
-  background: linear-gradient(90deg, #123e2a, #246344, #123e2a);
-  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
-}
-
-.groom .body::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 3px;
-  height: 100%;
-  background: var(--gold);
-}
-
-.bride .head {
-  left: 30px;
-}
-
-.bride .hair {
-  height: 105px;
-  width: 90px;
-  left: 17px;
-  top: -15px;
-  border-radius: 50% 50% 45% 45%;
-  background: #2a1712;
-}
-
-.bride .body {
-  position: absolute;
-  top: 75px;
-  left: -5px;
-  width: 135px;
-  height: 195px;
-  background: linear-gradient(90deg, #8b202b, #c94c58, #8b202b);
-  clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
-}
-
-.bride .body::after {
-  content: "✦";
-  position: absolute;
-  color: var(--gold);
-  font-size: 35px;
-  left: 48px;
-  top: 55px;
-}
-
-.bride .veil {
-  position: absolute;
-  top: -5px;
-  left: -15px;
-  width: 125px;
-  height: 160px;
-  border: 2px solid #e8c6a5;
-  border-radius: 50% 50% 0 0;
-  background: rgba(255,255,255,.15);
-}
-
-.couple-caption {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(35px, 6vw, 60px);
-  color: var(--green);
-}
-
-.petal {
-  position: fixed;
-  top: -50px;
-  z-index: 20;
-  pointer-events: none;
-  color: #d87e91;
-  animation: fall linear infinite;
-  opacity: .65;
-}
-
-@keyframes fall {
-  0% { transform: translateY(-10vh) rotate(0deg); }
-  100% { transform: translateY(115vh) rotate(720deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: .4; }
-  50% { opacity: 1; }
-}
-
-@keyframes coupleFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.details-section {
-  background: var(--cream);
-}
-
-.details-card {
-  background: rgba(255,255,255,.65);
-  border: 1px solid #e6c59b;
-  padding: clamp(30px, 6vw, 65px);
-  border-radius: 180px 180px 20px 20px;
-  box-shadow: 0 20px 60px rgba(111, 50, 36, .1);
-}
-
-.detail {
-  margin: 35px 0;
-}
-
-.detail h3 {
-  font-size: 16px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.detail p {
-  font-size: clamp(20px, 4vw, 30px);
-}
-
-.divider {
-  width: 100px;
-  height: 1px;
-  background: var(--gold);
-  margin: 30px auto;
-}
-
-.countdown-section {
-  background: linear-gradient(135deg, #7f1d2b, #a8434b);
-  color: #fff9ed;
-}
-
-.countdown-section h2 {
-  color: #fff9ed;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin: 40px 0;
-}
-
-.countdown-item {
-  min-width: 95px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,.35);
-  border-radius: 15px;
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-}
-
-.countdown-item strong {
-  display: block;
-  font-size: 40px;
-  font-weight: 400;
-}
-
-.countdown-item span {
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.map-section {
-  background: #f8e5d9;
-}
-
-.map-button {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 17px 35px;
-  color: white;
-  background: var(--green);
-  text-decoration: none;
-  border-radius: 50px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 2px;
-  font-size: 13px;
-  transition: .4s;
-  box-shadow: 0 10px 25px rgba(23,77,52,.2);
-}
-
-.map-button:hover,
-.map-button:focus-visible {
-  transform: translateY(-6px);
-  background: var(--gold);
-}
-
-.final-section {
-  min-height: 100vh;
-  background: radial-gradient(ellipse at center, #fffdf7, #efd2c6);
-}
-
-.final-section h2 {
-  font-size: clamp(45px, 9vw, 95px);
-}
-
-footer {
-  padding: 25px;
-  background: var(--green);
-  color: white;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-@media (max-width:600px) {
-  section {
-    padding: 65px 16px;
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 12vw, 65px);
-    letter-spacing: 0;
-  }
-
-  .hero-subtitle {
-    letter-spacing: 2px;
-    font-size: 10px;
-  }
-
-  .hero-date {
-    font-size: 18px;
-  }
-
-  .hero-decoration {
-    font-size: 28px;
-  }
-
-  .curtain-frame {
-    min-height: 420px;
-  }
-
-  .curtain-content {
-    padding: 30px 15px;
-  }
-
-  .curtain-content p {
-    font-size: 17px;
-  }
-
-  .couple {
-    transform: scale(.78);
-    transform-origin: center bottom;
-    margin: 15px auto;
-    width: 100%;
-  }
-
-  .couple-section .container {
-    padding-top: 20px;
-  }
-
-  .details-card {
-    border-radius: 100px 100px 20px 20px;
-    padding: 40px 22px;
-  }
-
-  .detail {
-    margin: 25px 0;
-  }
-
-  .detail h3 {
-    letter-spacing: 2px;
-    font-size: 13px;
-  }
-
-  .countdown {
-    gap: 10px;
-  }
-
-  .countdown-item {
-    min-width: 70px;
-    padding: 12px 8px;
-  }
-
-  .countdown-item strong {
-    font-size: 28px;
-  }
-
-  .countdown-item span {
-    font-size: 9px;
-    letter-spacing: 1px;
-  }
-
-  .map-button {
-    padding: 15px 22px;
-    font-size: 11px;
-    letter-spacing: 1px;
-  }
-
-  .ornament {
-    font-size: 23px;
-    letter-spacing: 5px;
-  }
-
-  .scroll-hint {
-    font-size: 9px;
-    letter-spacing: 3px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-</style>
-</head>
-
-<body>
-<div id="petals"></div>
-
-<section class="hero">
-  <div class="hero-decoration">✿</div>
-  <div class="hero-decoration">❀</div>
-  <div class="hero-decoration">✧</div>
-  <div class="hero-decoration">✿</div>
-
-  <div class="hero-content reveal">
-    <p class="hero-subtitle">Together with their families</p>
-    <div class="ornament">❧ ❦ ❧</div>
-    <p style="letter-spacing:3px">Invite you to celebrate</p>
-
-    <h1 class="script">M. Sundarprasad</h1>
-    <p class="gold" style="font-size:35px">with</p>
-    <h1 class="script">D. Swathi</h1>
-
-    <div class="ornament">❧ ❦ ❧</div>
-    <p class="hero-date">Sunday, 22 November 2026</p>
-    <p style="margin-top:15px;letter-spacing:3px">A BEAUTIFUL BEGINNING</p>
-  </div>
-
-  <div class="scroll-hint">SCROLL TO BEGIN ↓</div>
-</section>
-
-<section class="curtain-section" id="curtain">
-  <div class="curtain left"></div>
-  <div class="curtain right"></div>
-
-  <div class="curtain-content reveal">
-    <p class="gold" style="letter-spacing:4px">A MOMENT OF LOVE</p>
-    <h2 class="script">Two hearts,<br>one beautiful journey</h2>
-    <div class="ornament">✦ ❀ ✦</div>
-    <p>As the curtains of a new chapter open,<br>we invite you to witness our forever.</p>
-  </div>
-</section>
-
-<section class="couple-section">
-  <div class="container reveal">
-    <p style="letter-spacing:4px">THE BRIDE & THE GROOM</p>
-
-    <div class="couple">
-      <div class="person groom">
-        <div class="head"></div>
-        <div class="hair"></div>
-        <div class="body"></div>
-      </div>
-
-      <div class="person bride">
-        <div class="veil"></div>
-        <div class="head"></div>
-        <div class="hair"></div>
-        <div class="body"></div>
-      </div>
-    </div>
-
-    <p class="couple-caption">M. Sundarprasad & D. Swathi</p>
-    <div class="ornament">❧ ♥ ❧</div>
-    <p>Your presence, love, and blessings would mean a lot to us.</p>
-  </div>
-</section>
-
-<section class="details-section">
-  <div class="container reveal">
-    <div class="details-card">
-      <p style="letter-spacing:4px">PLEASE JOIN US</p>
-      <h2 class="script" style="margin:20px 0">Wedding Celebration</h2>
-      <div class="divider"></div>
-
-      <div class="detail">
-        <h3>Sunday</h3>
-        <p>22 November 2026</p>
-      </div>
-
-      <div class="detail">
-        <h3>Muhurtham</h3>
-        <p>6:00 AM – 7:29 AM</p>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="detail">
-        <h3>Venue</h3>
-        <p style="font-weight:600">Mahalakshmi Mahal</p>
-        <p>Pasuvandhanai Road,<br>Kovilpatti.</p>
-      </div>
-
-      <div class="ornament">❀ ❀ ❀</div>
-    </div>
-  </div>
-</section>
-
-<section class="countdown-section">
-  <div class="container reveal">
-    <p style="letter-spacing:4px">THE BIG DAY IS APPROACHING</p>
-    <h2 class="script" style="margin:25px 0">Counting down to forever</h2>
-
-    <div class="countdown">
-      <div class="countdown-item"><strong id="days">00</strong><span>DAYS</span></div>
-      <div class="countdown-item"><strong id="hours">00</strong><span>HOURS</span></div>
-      <div class="countdown-item"><strong id="minutes">00</strong><span>MINUTES</span></div>
-      <div class="countdown-item"><strong id="seconds">00</strong><span>SECONDS</span></div>
-    </div>
-
-    <p class="script" style="font-size:35px">Until two become one ❤️</p>
-  </div>
-</section>
-
-<section class="map-section">
-  <div class="container reveal">
-    <p style="letter-spacing:4px">WE CAN'T WAIT TO SEE YOU</p>
-    <h2 class="script" style="margin:25px 0">Find Your Way to Us</h2>
-    <p>Join us at Mahalakshmi Mahal,<br>Kovilpatti, Tamil Nadu.</p>
-    <div class="ornament">✧ ❀ ✧</div>
-    <a class="map-button" href="https://maps.app.goo.gl/9XJovGpt1abng1Me6" target="_blank" rel="noopener noreferrer">📍 OPEN GOOGLE MAPS</a>
-  </div>
-</section>
-
-<section class="final-section">
-  <div class="container reveal">
-    <div class="ornament">❧ ❀ ❧</div>
-    <p style="letter-spacing:4px">WITH LOVE & GRATITUDE</p>
-    <h2 class="script" style="margin:30px 0">Your blessings<br>are our greatest gift</h2>
-    <p>We look forward to celebrating this beautiful beginning with you.</p>
-    <div class="ornament">♥</div>
-    <p class="script" style="font-size:45px">M. Sundarprasad & D. Swathi</p>
-    <p style="letter-spacing:4px;margin-top:25px">FOREVER BEGINS HERE</p>
-  </div>
-</section>
-
-<footer>
-  MADE WITH LOVE · WEDDING CELEBRATION · 2026
-</footer>
-
-<script>
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
-
-const curtain = document.getElementById('curtain');
-const curtainObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      curtain.classList.add('open');
-    }
-  });
-}, { threshold: 0.35 });
-
-if (curtain) {
-  curtainObserver.observe(curtain);
-}
-
-const petalsContainer = document.getElementById('petals');
-for (let i = 0; i < 24; i++) {
-  const petal = document.createElement('div');
-  petal.className = 'petal';
-  petal.innerHTML = '✿';
-  petal.style.left = Math.random() * 100 + 'vw';
-  petal.style.fontSize = (12 + Math.random() * 20) + 'px';
-  petal.style.animationDuration = (10 + Math.random() * 15) + 's';
-  petal.style.animationDelay = (Math.random() * 15) + 's';
-  petalsContainer.appendChild(petal);
-}
-
-const weddingDate = new Date('2026-11-22T06:00:00+05:30').getTime();
-
-const updateCountdown = () => {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
-
-  if (distance <= 0) {
-    document.getElementById('days').textContent = '00';
-    document.getElementById('hours').textContent = '00';
-    document.getElementById('minutes').textContent = '00';
-    document.getElementById('seconds').textContent = '00';
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
-
-  document.getElementById('days').textContent = String(days).padStart(2, '0');
-  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-};
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script>
-</body>
-</html>
+You are now acting as a world-class creative frontend developer, cinematic motion designer, and luxury Indian wedding invitation designer.
+
+I already have a working wedding invitation website in my GitHub repository:
+
+Repository: sameergonde/Wedding-Invitation-SundarPrasad
+
+The website is already good. I do NOT want you to destroy the existing design or rebuild it from scratch.
+
+I want you to take the existing website to the next level.
+
+My goal is to create an extraordinarily beautiful, authentic, cinematic Indian wedding invitation website. When guests open the website, they should immediately feel that this is a premium, professionally designed wedding invitation.
+
+The animations should feel magical, elegant, emotional, and natural.
+
+Your task is to inspect my existing implementation, identify the current animation limitations, and improve the complete website.
+
+Do not ask me questions. Inspect the repository and implement the improvements directly.
+
+# 1. Replace the basic rectangular curtain animation
+
+The current curtain animation is too basic.
+
+I want a much more beautiful traditional Indian wedding entrance.
+
+Create an elegant ceremonial opening animation using CSS, SVG, or other lightweight frontend techniques.
+
+Imagine:
+
+- A beautiful palace-inspired wedding entrance.
+- Rich maroon and antique-gold fabric.
+- Delicate ornamental borders.
+- Traditional Indian floral decorations.
+- Elegant gold particles and tiny flower petals.
+- A soft cinematic glow.
+- The curtains opening gracefully from the center.
+- The invitation being revealed gradually behind the curtains.
+
+The curtain should have a realistic fabric-inspired movement rather than looking like two simple rectangular blocks.
+
+Use layered shapes, gradients, decorative SVG elements, and sophisticated easing.
+
+The entrance should feel like the opening of a luxurious Indian wedding ceremony.
+
+Do not use a generic rectangular wipe animation.
+
+After the curtains open, reveal the wedding invitation with a beautiful combination of opacity, scale, and staggered text animations.
+
+# 2. Create a beautiful cinematic opening sequence
+
+The opening sequence should feel professionally choreographed.
+
+Sequence:
+
+1. A subtle golden glow appears.
+2. Small flower petals begin floating.
+3. Traditional decorative elements become visible.
+4. The curtains begin opening.
+5. The wedding invitation gradually appears.
+6. "Together with their families" fades in.
+7. "Invite you to celebrate" appears elegantly.
+8. M. Sundarprasad is revealed with a beautiful calligraphic animation.
+9. "With" appears between the names.
+10. D. Swathi is revealed.
+11. Beautiful floral ornaments appear around the couple's names.
+12. The invitation gently settles into its final position.
+
+The animations should feel coordinated, not random.
+
+Use elegant easing curves and carefully timed transitions.
+
+Avoid excessive bouncing, flashing, or aggressive zooming.
+
+# 3. Create a beautiful continuous scrolling experience
+
+This is one of the most important requirements.
+
+The current scrolling should become exceptionally smooth and visually satisfying.
+
+I want the entire wedding website to feel like a cinematic journey.
+
+As guests scroll down:
+
+- Sections should reveal themselves naturally.
+- Decorative elements should move at different speeds.
+- Floral ornaments should gently drift.
+- Background elements should create a subtle depth effect.
+- Text should reveal in elegant staggered sequences.
+- The wedding date should appear with a beautiful cinematic transition.
+- The venue should reveal itself with an elegant entrance.
+- The final section should feel like a romantic conclusion.
+
+Implement scroll-triggered animations using IntersectionObserver or another lightweight approach.
+
+Use transforms and opacity for animation wherever possible.
+
+Avoid animating expensive layout properties.
+
+Do not create a separate scrolling container inside the website.
+
+The entire page must use natural browser scrolling.
+
+IMPORTANT:
+The scroll animation must not make the page jump.
+It must not trap the user.
+It must not cause blank spaces.
+It must not make the page scroll excessively slowly.
+It must not prevent guests from reaching any section.
+
+The scrolling should feel smooth on both laptop and mobile.
+
+# 4. Improve the floral animations
+
+Make the floral decorations feel authentic and sophisticated.
+
+Create:
+
+- Delicate floating rose petals.
+- Small marigold-inspired decorative elements.
+- Elegant floral corner ornaments.
+- Subtle golden particles.
+- Decorative vines and floral SVG patterns.
+- Gentle rotation and drifting motion.
+
+The petals should move naturally with different speeds and directions.
+
+Do not make the screen look crowded.
+
+The flowers should enhance the wedding atmosphere without covering important text.
+
+Use a controlled number of particles.
+
+Avoid creating hundreds of DOM elements.
+
+If possible, reuse elements or use lightweight CSS animations.
+
+# 5. Make the wedding names extraordinarily beautiful
+
+The names are the emotional center of the invitation.
+
+M. Sundarprasad
+
+and
+
+D. Swathi
+
+Create a premium calligraphic reveal.
+
+Use an elegant script font with beautiful typography.
+
+If a real handwriting or SVG stroke animation is practical, implement it.
+
+Otherwise, create a sophisticated text reveal using clipping, opacity, and subtle motion.
+
+Add delicate ornamental decorations around the names.
+
+Make the names feel like the centerpiece of a luxury wedding invitation.
+
+Do not alter the names.
+
+Never use the word "Anna".
+
+# 6. Upgrade every section
+
+Inspect the complete website and enhance every section, including:
+
+- Opening hero.
+- Couple's names.
+- Wedding countdown.
+- Invitation message.
+- Wedding date.
+- Venue.
+- Google Maps button.
+- Closing message.
+
+Every section should have its own animation identity while maintaining one consistent design language.
+
+Do not make every section use the same fade-in effect.
+
+Create variety through subtle combinations of:
+
+- Staggered reveals.
+- Masked text transitions.
+- Parallax.
+- Elegant scaling.
+- Decorative SVG motion.
+- Background transitions.
+- Floral movement.
+- Scroll-linked effects.
+
+The website should feel like a premium invitation designed by a professional motion designer.
+
+# 7. Make the countdown more elegant
+
+Improve the existing countdown animation.
+
+The countdown should have:
+
+- Elegant typography.
+- Beautiful maroon and antique-gold styling.
+- Subtle transitions when numbers change.
+- A sophisticated card design.
+- A soft glow or ornamental decoration.
+- A beautiful completed countdown state.
+
+Keep the existing countdown target:
+
+22 November 2026, 6:00 AM IST.
+
+Ensure the countdown is accurate.
+
+Do not break the existing date calculations.
+
+# 8. Improve the buttons and interactions
+
+Inspect every button and interactive element in the existing website.
+
+Make sure all buttons work correctly.
+
+Improve their visual appearance with:
+
+- Elegant hover effects.
+- Subtle gold highlights.
+- Smooth transitions.
+- Beautiful pressed states.
+- Touch-friendly mobile interaction.
+- Clear visual feedback.
+
+The Google Maps button must open this exact link:
+
+https://maps.app.goo.gl/9XJovGpt1abng1Me6
+
+If the website contains additional buttons, inspect each one and ensure it has a real working function.
+
+Do not create decorative buttons that do nothing.
+
+If an interactive feature does not exist, implement it only when it meaningfully improves the invitation.
+
+# 9. Make the experience responsive
+
+The website must work perfectly on:
+
+- Android phones.
+- iPhones.
+- Tablets.
+- Windows laptops.
+- Desktop computers.
+
+Requirements:
+
+- No horizontal overflow.
+- No broken animations on small screens.
+- No text clipping.
+- No oversized decorations covering the names.
+- No internal iframe scrollbar.
+- No unnecessary white or brown borders.
+- Properly scaled typography.
+- Touch-friendly buttons.
+- Responsive curtain animations.
+- Natural mobile scrolling.
+
+The website should remain beautiful on a small smartphone screen.
+
+Do not simply shrink the desktop design.
+
+Create an appropriate mobile animation experience.
+
+# 10. Performance and technical requirements
+
+Inspect the existing code before making changes.
+
+Preserve the existing working functionality.
+
+Use:
+
+- CSS transforms and opacity.
+- IntersectionObserver for scroll reveals.
+- RequestAnimationFrame only where genuinely necessary.
+- Lightweight SVG ornaments.
+- Proper event cleanup.
+- Responsive CSS.
+- Accessible semantic HTML.
+
+Avoid:
+
+- Excessive JavaScript animation loops.
+- Unnecessary animation libraries.
+- Heavy dependencies.
+- Large amounts of DOM particles.
+- Animations that cause layout shifts.
+- Scroll hijacking.
+- Unnecessary full-page re-rendering.
+- Infinite animations that consume excessive battery.
+
+Respect the user's prefers-reduced-motion setting.
+
+When reduced motion is enabled, simplify animations while preserving the visual design.
+
+On mobile, reduce the number of decorative particles and expensive effects.
+
+# 11. Preserve all wedding information
+
+Use these exact details:
+
+Groom: M. Sundarprasad
+
+Bride: D. Swathi
+
+Date: Sunday, 22 November 2026
+
+Time: 6:00 AM – 7:29 AM
+
+Venue: Mahalakshmi Mahal, Pasuvandhanai Road, Kovilpatti.
+
+Google Maps:
+https://maps.app.goo.gl/9XJovGpt1abng1Me6
+
+Do not change the wedding details.
+
+Do not invent additional events or ceremonies.
+
+# 12. Final implementation and verification
+
+Do not merely explain how to improve the website.
+
+Make the actual code changes in the repository.
+
+Inspect the existing HTML, CSS, and JavaScript.
+
+Improve the existing implementation.
+
+Ensure that the GitHub Pages homepage remains:
+
+index.html
+
+Test:
+
+- The opening animation.
+- The curtain animation.
+- The complete scroll experience.
+- The countdown.
+- All buttons.
+- The Google Maps link.
+- Desktop responsiveness.
+- Mobile responsiveness.
+- Reduced-motion accessibility.
+- Any JavaScript errors.
+- The final section and page ending.
+
+Make sure the website remains compatible with GitHub Pages.
+
+Do not claim that you tested something unless you actually tested it.
+
+FINAL GOAL:
+
+Create a premium, cinematic, emotionally beautiful Indian wedding invitation that makes guests feel genuinely delighted.
+
+The website should feel like an elegant wedding film transformed into an interactive website.
+
+Make it extraordinary, but keep it tasteful, authentic, smooth, and technically reliable.
+
+Implement everything directly and provide a summary of the improvements after completion.
