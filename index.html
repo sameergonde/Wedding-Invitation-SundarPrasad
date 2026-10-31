@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#fff7ed">
+<meta name="description" content="Wedding invitation of M. Sundarprasad and D. Swathi — 22 November 2026, Kovilpatti.">
 <title>M. Sundarprasad & D. Swathi | Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +16,14 @@
   --cream: #fff7ed;
   --peach: #f5d6c6;
   --maroon: #842b37;
-  --deep-maroon: #551723;
+  --deep: #551723;
   --green: #174d35;
   --gold: #c79b48;
-  --soft-gold: #ead3a0;
+  --softgold: #ead3a0;
   --text: #6c3035;
+  --serif: "Cormorant Garamond", serif;
+  --display: "Playfair Display", serif;
+  --script: "Great Vibes", cursive;
 }
 
 * {
@@ -31,18 +34,19 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 30px;
+  scroll-padding-top: 24px;
 }
 
 body {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--serif);
   background: var(--cream);
   color: var(--text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-button, a {
+button,
+a {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -57,12 +61,12 @@ a {
 
 ::selection {
   background: var(--maroon);
-  color: white;
+  color: #fff;
 }
 
-/* ================================
-   CINEMATIC WEDDING ENTRANCE
-================================ */
+/* =====================================
+   CINEMATIC CURTAIN INTRO
+===================================== */
 
 .intro {
   position: fixed;
@@ -78,15 +82,23 @@ a {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 45%, rgba(255,255,255,.10), transparent 60%),
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(255,255,255,.10),
+      transparent 60%
+    ),
     repeating-linear-gradient(
       90deg,
-      rgba(255,255,255,.025) 0px,
-      rgba(255,255,255,.025) 2px,
-      transparent 2px,
-      transparent 8px
+      rgba(255,255,255,.025) 0 2px,
+      transparent 2px 8px
     ),
-    linear-gradient(135deg, #9c3546, #641a2b 45%, #8c2a3c);
+    linear-gradient(
+      135deg,
+      #9c3546,
+      #641a2b 45%,
+      #8c2a3c
+    );
+
   box-shadow: inset 0 0 90px rgba(35,0,0,.5);
 }
 
@@ -94,28 +106,25 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 12%,
-      rgba(28,0,0,.18) 14%,
-      transparent 18%
-    );
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 8%,
+    rgba(255,220,160,.08) 9%,
+    transparent 12%
+  );
 }
 
 .curtain::after {
-  content: "✦   ❀   ✦   ❀   ✦";
+  content: "❀";
   position: absolute;
   top: 50%;
   left: 50%;
   width: 100%;
-  color: var(--soft-gold);
-  font-size: clamp(15px, 3vw, 30px);
+  color: var(--softgold);
+  font-size: clamp(50px,10vw,140px);
   text-align: center;
-  letter-spacing: 12px;
   opacity: .5;
-  transform: translate(-50%, -50%) rotate(-90deg);
+  transform: translate(-50%,-50%);
 }
 
 .curtain-left {
@@ -130,30 +139,6 @@ a {
   box-shadow: -10px 0 25px rgba(0,0,0,.12);
 }
 
-.curtain-left::before,
-.curtain-right::before {
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent 8%,
-      rgba(255,220,160,.08) 9%,
-      transparent 12%
-    );
-}
-
-.curtain-left::after {
-  content: "❀";
-  transform: translate(-50%, -50%);
-  font-size: clamp(50px, 10vw, 140px);
-}
-
-.curtain-right::after {
-  content: "❀";
-  transform: translate(-50%, -50%);
-  font-size: clamp(50px, 10vw, 140px);
-}
-
 .intro.open .curtain-left {
   animation: curtainLeft 2.8s cubic-bezier(.77,0,.18,1) forwards;
 }
@@ -163,13 +148,15 @@ a {
 }
 
 @keyframes curtainLeft {
-  0% { transform: translateX(0) rotateY(0); }
-  100% { transform: translateX(-105%) rotateY(-16deg); }
+  to {
+    transform: translateX(-105%) rotateY(-16deg);
+  }
 }
 
 @keyframes curtainRight {
-  0% { transform: translateX(0) rotateY(0); }
-  100% { transform: translateX(105%) rotateY(16deg); }
+  to {
+    transform: translateX(105%) rotateY(16deg);
+  }
 }
 
 .intro.open {
@@ -177,41 +164,18 @@ a {
 }
 
 @keyframes introDisappear {
-  to { visibility: hidden; }
+  to {
+    visibility: hidden;
+  }
 }
 
 .intro.hidden {
   display: none;
 }
 
-/* ================================
-   DECORATIONS
-================================ */
-
-.gold-line {
-  width: 100px;
-  height: 1px;
-  margin: 22px auto;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--gold),
-    transparent
-  );
-}
-
-.ornament {
-  display: block;
-  margin: 18px auto;
-  width: 100px;
-  height: auto;
-  color: var(--gold);
-}
-
-.ornament svg {
-  width: 100%;
-  height: auto;
-}
+/* =====================================
+   FLOATING PETALS AND SPARKLES
+===================================== */
 
 .petal-layer {
   position: fixed;
@@ -232,11 +196,13 @@ a {
 
 @keyframes petalFall {
   0% {
-    transform: translate3d(0,-5vh,0) rotate(0deg);
+    transform: translate3d(0,-5vh,0) rotate(0);
   }
+
   50% {
     transform: translate3d(60px,50vh,0) rotate(180deg);
   }
+
   100% {
     transform: translate3d(-30px,110vh,0) rotate(360deg);
   }
@@ -253,13 +219,20 @@ a {
 }
 
 @keyframes sparkle {
-  from { opacity: .2; transform: scale(.5); }
-  to { opacity: 1; transform: scale(1.5); }
+  from {
+    opacity: .2;
+    transform: scale(.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
 }
 
-/* ================================
-   HERO
-================================ */
+/* =====================================
+   HERO SECTION
+===================================== */
 
 .hero {
   position: relative;
@@ -269,15 +242,21 @@ a {
   justify-content: center;
   padding: 70px 20px;
   overflow: hidden;
+
   background:
-    radial-gradient(ellipse at 50% 45%, #fffdf8 0%, #fff5e9 55%, #f8dfd1 100%);
+    radial-gradient(
+      ellipse at 50% 45%,
+      #fffdf8 0%,
+      #fff5e9 55%,
+      #f8dfd1 100%
+    );
 }
 
 .hero::before,
 .hero::after {
   content: "";
   position: absolute;
-  width: min(70vw, 650px);
+  width: min(70vw,650px);
   aspect-ratio: 1;
   border: 1px solid rgba(199,155,72,.2);
   border-radius: 50%;
@@ -289,136 +268,155 @@ a {
 }
 
 .hero::after {
-  width: min(85vw, 780px);
+  width: min(85vw,780px);
   border-style: dashed;
   animation: slowRotate 120s linear infinite reverse;
 }
 
 @keyframes slowRotate {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(100%, 900px);
+  width: min(100%,900px);
   text-align: center;
 }
 
-.eyebrow {
-  font-family: "Playfair Display", serif;
-  font-size: 11px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--maroon);
-  margin-bottom: 32px;
-}
-
-.hero h1 {
-  font-family: "Great Vibes", cursive;
-  color: var(--green);
-  font-weight: 400;
-  font-size: clamp(55px, 10vw, 115px);
-  line-height: 1.12;
-  margin: 18px 0;
-  text-shadow: 0 8px 25px rgba(23,77,53,.08);
-}
-
-.hero h1 span {
-  display: block;
-  opacity: 0;
-  transform: translateY(45px) scale(.96);
-  filter: blur(10px);
-}
-
-.hero.names-visible h1 span {
-  animation: nameReveal 1.8s cubic-bezier(.2,.8,.2,1) forwards;
-}
-
-.hero.names-visible h1 span:nth-of-type(2) {
-  animation-delay: .6s;
-}
-
-@keyframes nameReveal {
-  0% {
-    opacity: 0;
-    transform: translateY(45px) scale(.96);
-    filter: blur(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-.hero .with {
-  font-family: "Great Vibes", cursive;
-  color: var(--gold);
-  font-size: clamp(30px, 5vw, 46px);
-  margin: 15px 0;
-  opacity: 0;
-}
-
-.hero.names-visible .with {
-  animation: fadeIn 1.4s .25s forwards;
-}
-
-.hero .invite-line {
-  font-size: clamp(17px, 2.5vw, 25px);
-  letter-spacing: 3px;
-  color: var(--maroon);
-  margin-top: 30px;
-  opacity: 0;
-  animation: fadeIn 1.4s 4.4s forwards;
-}
-
-.hero .family-line {
-  font-family: "Playfair Display", serif;
+.family-line,
+.eyebrow,
+.section-label {
+  font-family: var(--display);
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--text);
-  opacity: 0;
-  animation: fadeIn 1.2s 3.1s forwards;
+  color: var(--maroon);
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
+.family-line {
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.ornament {
+  display: block;
+  width: 100px;
+  margin: 18px auto;
+  color: var(--gold);
+}
+
+.ornament svg {
+  width: 100%;
+  height: auto;
+}
+
+.hero .ornament {
+  margin: 12px auto 20px;
+}
+
+.invite-line {
+  font-size: clamp(15px,2.5vw,22px);
+  letter-spacing: 3px;
+  color: var(--maroon);
+  margin: 24px auto;
+  opacity: 0;
+}
+
+.hero h1 {
+  font-family: var(--script);
+  color: var(--green);
+  font-weight: 400;
+  font-size: clamp(54px,10vw,112px);
+  line-height: 1.08;
+  margin: 12px 0;
+  text-shadow: 0 8px 25px rgba(23,77,53,.08);
+}
+
+.name-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(35px) scale(.97);
+  filter: blur(8px);
+}
+
+.with {
+  display: block;
+  font-family: var(--script);
+  color: var(--gold);
+  font-size: clamp(30px,5vw,46px);
+  margin: 7px 0;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.role-label {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--maroon);
+  border: 1px solid rgba(199,155,72,.6);
+  border-radius: 50px;
+  padding: 7px 15px;
+  margin: 4px 0 8px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.invite-note {
+  font-size: clamp(16px,2.4vw,23px);
+  letter-spacing: 1.5px;
+  margin-top: 22px;
+  opacity: 0;
+}
+
+.hero-cta,
+.map-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 28px;
+  border: 1px solid var(--gold);
+  border-radius: 50px;
+  background: rgba(255,255,255,.5);
+  color: var(--maroon);
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition:
+    background .35s,
+    color .35s,
+    transform .35s,
+    box-shadow .35s;
 }
 
 .hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 38px;
-  padding: 15px 30px;
-  border: 1px solid var(--gold);
-  border-radius: 50px;
-  background: rgba(255,255,255,.45);
-  color: var(--maroon);
-  font-family: "Playfair Display", serif;
-  font-size: 12px;
-  letter-spacing: 2px;
-  cursor: pointer;
+  margin-top: 30px;
   opacity: 0;
-  animation: fadeIn 1s 5s forwards;
-  transition: background .4s, color .4s, transform .4s, box-shadow .4s;
 }
 
-.hero-cta:hover {
+.hero-cta:hover,
+.map-button:hover {
   background: var(--maroon);
-  color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(132,43,55,.18);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(132,43,55,.18);
 }
 
 .scroll-indicator {
   position: absolute;
-  bottom: 25px;
+  bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 10px;
+  font-family: var(--display);
+  font-size: 9px;
   letter-spacing: 3px;
   color: var(--gold);
   animation: float 2.5s ease-in-out infinite;
@@ -427,63 +425,138 @@ a {
 .scroll-indicator::after {
   content: "↓";
   display: block;
-  margin-top: 8px;
-  font-size: 20px;
+  margin-top: 7px;
+  font-size: 19px;
   text-align: center;
 }
 
 @keyframes float {
-  0%,100% { transform: translate(-50%,0); }
-  50% { transform: translate(-50%,8px); }
+  0%,100% {
+    transform: translate(-50%,0);
+  }
+
+  50% {
+    transform: translate(-50%,8px);
+  }
 }
 
-/* ================================
+/* =====================================
+   AUTOMATIC NAME REVEAL
+   Triggered by curtain opening, not scroll
+===================================== */
+
+body.intro-finished .family-line {
+  animation: fadeUp .8s .12s forwards;
+}
+
+body.intro-finished .hero .invite-line:first-of-type {
+  animation: fadeUp .8s .25s forwards;
+}
+
+body.intro-finished .name-line.groom {
+  animation: nameReveal 1.2s .42s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+body.intro-finished .role-label.groom-role {
+  animation: fadeUp .7s .7s forwards;
+}
+
+body.intro-finished .with {
+  animation: fadeUp .8s .9s forwards;
+}
+
+body.intro-finished .name-line.bride {
+  animation: nameReveal 1.2s 1.05s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+body.intro-finished .role-label.bride-role {
+  animation: fadeUp .7s 1.3s forwards;
+}
+
+body.intro-finished .invite-note {
+  animation: fadeUp .8s 1.55s forwards;
+}
+
+body.intro-finished .hero-cta {
+  animation: fadeUp .8s 1.85s forwards;
+}
+
+@keyframes nameReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(45px) scale(.96);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================
    GENERAL SECTIONS
-================================ */
+===================================== */
 
 .section {
   position: relative;
-  padding: 110px 24px;
+  padding: 100px 24px;
   text-align: center;
   overflow: hidden;
 }
 
 .section-inner {
-  width: min(100%, 900px);
+  width: min(100%,900px);
   margin: 0 auto;
 }
 
 .section-label {
-  font-family: "Playfair Display", serif;
-  font-size: 11px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .section-title {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(44px, 7vw, 76px);
+  font-family: var(--script);
+  font-size: clamp(43px,7vw,74px);
   font-weight: 400;
   color: var(--green);
   line-height: 1.2;
 }
 
 .section-text {
-  font-size: clamp(19px, 2.4vw, 25px);
-  line-height: 1.8;
-  max-width: 650px;
-  margin: 28px auto;
+  font-size: clamp(18px,2.4vw,24px);
+  line-height: 1.7;
+  max-width: 660px;
+  margin: 22px auto;
   color: var(--text);
+}
+
+.gold-line {
+  width: 100px;
+  height: 1px;
+  margin: 22px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(45px);
+  transform: translateY(35px);
   transition:
-    opacity 1.1s cubic-bezier(.2,.8,.2,1),
-    transform 1.1s cubic-bezier(.2,.8,.2,1);
+    opacity .9s cubic-bezier(.2,.8,.2,1),
+    transform .9s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.visible {
@@ -491,43 +564,20 @@ a {
   transform: translateY(0);
 }
 
-.reveal-left {
-  transform: translateX(-55px);
-}
-
-.reveal-right {
-  transform: translateX(55px);
-}
-
-.reveal-left.visible,
-.reveal-right.visible {
-  transform: translateX(0);
-}
-
-.reveal-scale {
-  transform: scale(.88);
-}
-
-.reveal-scale.visible {
-  transform: scale(1);
-}
-
-/* ================================
-   INVITATION MESSAGE
-================================ */
+/* Invitation message */
 
 .message-section {
   background:
-    radial-gradient(ellipse at top, #fffaf2, transparent 70%),
+    radial-gradient(ellipse at top,#fffaf2,transparent 70%),
     var(--cream);
 }
 
 .message-frame {
   position: relative;
-  padding: 55px 30px;
+  padding: 50px 30px;
   border: 1px solid rgba(199,155,72,.35);
   outline: 1px solid rgba(199,155,72,.12);
-  outline-offset: 9px;
+  outline-offset: 8px;
   background: rgba(255,255,255,.35);
 }
 
@@ -536,27 +586,83 @@ a {
   content: "❀";
   position: absolute;
   color: var(--gold);
-  font-size: 36px;
+  font-size: 30px;
   opacity: .6;
 }
 
 .message-frame::before {
-  top: 15px;
-  left: 20px;
+  top: 12px;
+  left: 18px;
 }
 
 .message-frame::after {
-  bottom: 15px;
-  right: 20px;
+  bottom: 12px;
+  right: 18px;
 }
 
-/* ================================
+/* =====================================
+   WEDDING MILESTONES
+===================================== */
+
+.journey {
+  background: #fffaf3;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+  margin: 40px auto 0;
+}
+
+.journey-card {
+  padding: 28px 20px;
+  border: 1px solid rgba(199,155,72,.35);
+  background: linear-gradient(145deg,#fffdf8,#fff0e4);
+  transition: transform .3s, box-shadow .3s;
+}
+
+.journey-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(105,52,38,.08);
+}
+
+.journey-number {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  color: var(--maroon);
+  font-family: var(--display);
+  font-size: 13px;
+}
+
+.journey-card h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  color: var(--green);
+  font-size: 19px;
+  margin-bottom: 9px;
+}
+
+.journey-card p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* =====================================
    COUNTDOWN
-================================ */
+===================================== */
 
 .countdown-section {
-  background:
-    radial-gradient(ellipse at center, #9d3c4b, #702231 75%);
+  background: radial-gradient(
+    ellipse at center,
+    #9d3c4b,
+    #702231 75%
+  );
   color: white;
 }
 
@@ -576,47 +682,41 @@ a {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  margin: 45px auto;
+  gap: 14px;
+  margin: 38px auto;
 }
 
 .time-box {
-  width: clamp(72px, 16vw, 120px);
-  padding: 22px 10px;
+  width: clamp(75px,16vw,120px);
+  padding: 20px 10px;
   border: 1px solid rgba(239,211,160,.5);
   border-radius: 12px;
   background: rgba(255,255,255,.06);
   backdrop-filter: blur(8px);
-  transition: transform .4s, background .4s;
-}
-
-.time-box:hover {
-  transform: translateY(-7px);
-  background: rgba(255,255,255,.12);
 }
 
 .time-box strong {
   display: block;
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(30px,5vw,46px);
   font-weight: 500;
   color: #fff3df;
-  font-family: "Playfair Display", serif;
+  font-family: var(--display);
   line-height: 1.2;
 }
 
 .time-box span {
   display: block;
   margin-top: 8px;
-  font-family: sans-serif;
+  font-family: var(--display);
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #ead3a0;
 }
 
-/* ================================
+/* =====================================
    DATE AND VENUE
-================================ */
+===================================== */
 
 .event-section {
   background: #fffaf3;
@@ -624,31 +724,31 @@ a {
 
 .event-card {
   position: relative;
-  max-width: 650px;
-  margin: 35px auto 0;
-  padding: 55px 30px;
-  border: 1px solid var(--soft-gold);
-  background: linear-gradient(145deg, #fffdf8, #fff0e4);
+  max-width: 680px;
+  margin: 34px auto 0;
+  padding: 48px 28px;
+  border: 1px solid var(--softgold);
+  background: linear-gradient(145deg,#fffdf8,#fff0e4);
   box-shadow: 0 20px 70px rgba(105,52,38,.07);
 }
 
 .event-card::before {
   content: "✦";
   position: absolute;
-  top: -20px;
+  top: -19px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 35px;
+  font-size: 32px;
   color: var(--gold);
   background: #fffaf3;
-  padding: 0 18px;
+  padding: 0 15px;
 }
 
 .event-date {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(27px, 5vw, 42px);
+  font-family: var(--display);
+  font-size: clamp(26px,5vw,40px);
   color: var(--maroon);
-  margin: 18px 0;
+  margin: 16px 0;
 }
 
 .event-time {
@@ -657,84 +757,82 @@ a {
 }
 
 .venue-name {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(22px, 4vw, 32px);
+  font-family: var(--display);
+  font-size: clamp(22px,4vw,31px);
   color: var(--green);
-  margin: 18px 0;
+  margin: 16px 0;
 }
 
 .map-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
-  padding: 16px 28px;
-  border-radius: 50px;
-  border: 1px solid var(--maroon);
+  margin-top: 18px;
   background: var(--maroon);
+  border-color: var(--maroon);
   color: white;
-  font-family: "Playfair Display", serif;
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  transition: transform .35s, box-shadow .35s, background .35s;
 }
 
-.map-button:hover {
-  background: var(--deep-maroon);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(132,43,55,.2);
-}
-
-/* ================================
+/* =====================================
    CLOSING
-================================ */
+===================================== */
 
 .closing-section {
-  background:
-    radial-gradient(ellipse at center, #fffaf2, #f7dfd1);
-  padding: 140px 24px;
+  background: radial-gradient(
+    ellipse at center,
+    #fffaf2,
+    #f7dfd1
+  );
+  padding: 120px 24px;
 }
 
 .closing-heart {
   display: block;
-  font-size: 35px;
-  margin: 25px 0;
+  font-size: 34px;
+  margin: 24px 0;
   animation: heartbeat 2s ease-in-out infinite;
 }
 
 @keyframes heartbeat {
-  0%,100% { transform: scale(1); }
-  15% { transform: scale(1.15); }
-  30% { transform: scale(1); }
-  45% { transform: scale(1.1); }
+  0%,100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.15);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.1);
+  }
 }
 
 .closing-names {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(36px, 7vw, 65px);
+  font-family: var(--script);
+  font-size: clamp(36px,7vw,64px);
   color: var(--green);
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 footer {
-  padding: 25px;
+  padding: 24px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: var(--display);
   font-size: 10px;
-  letter-spacing: 2px;
-  background: var(--deep-maroon);
+  letter-spacing: 1.5px;
+  background: var(--deep);
   color: #f8e6cf;
 }
 
-/* ================================
-   REPLAY AND BACK TO TOP
-================================ */
+/* =====================================
+   FLOATING BUTTONS
+===================================== */
 
 .floating-controls {
   position: fixed;
   right: 18px;
-  bottom: 20px;
+  bottom: 18px;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -742,23 +840,22 @@ footer {
 }
 
 .floating-button {
-  width: 44px;
-  height: 44px;
+  width: 43px;
+  height: 43px;
   border-radius: 50%;
   border: 1px solid rgba(199,155,72,.6);
-  background: rgba(255,250,243,.92);
+  background: rgba(255,250,243,.93);
   color: var(--maroon);
   box-shadow: 0 4px 20px rgba(0,0,0,.08);
   cursor: pointer;
   font-size: 18px;
   display: grid;
   place-items: center;
-  transition: transform .3s, background .3s;
+  transition: transform .3s;
 }
 
 .floating-button:hover {
-  transform: translateY(-4px);
-  background: white;
+  transform: translateY(-3px);
 }
 
 #backTop {
@@ -772,37 +869,46 @@ footer {
   visibility: visible;
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
 
-@media (max-width: 600px) {
+@media (max-width:650px) {
   .section {
-    padding: 75px 20px;
+    padding: 75px 18px;
   }
 
   .hero {
-    padding: 60px 18px;
+    padding: 55px 15px;
   }
 
   .hero h1 {
-    font-size: clamp(48px, 13vw, 76px);
+    font-size: clamp(47px,12.5vw,76px);
   }
 
-  .hero .family-line {
+  .family-line {
     letter-spacing: 2.5px;
   }
 
-  .hero .invite-line {
+  .invite-line {
     letter-spacing: 1.5px;
   }
 
   .message-frame {
-    padding: 45px 20px;
+    padding: 42px 18px;
   }
 
   .event-card {
-    padding: 45px 20px;
+    padding: 42px 18px;
+  }
+
+  .journey-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .journey-card {
+    padding: 24px 18px;
   }
 
   .countdown {
@@ -816,7 +922,7 @@ footer {
 
   .floating-controls {
     right: 12px;
-    bottom: 14px;
+    bottom: 13px;
   }
 
   .floating-button {
@@ -833,7 +939,7 @@ footer {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion:reduce) {
   *,
   *::before,
   *::after {
@@ -853,7 +959,7 @@ footer {
 
 <body>
 
-<!-- CINEMATIC ENTRANCE -->
+<!-- CINEMATIC CURTAIN -->
 <div class="intro" id="intro" aria-hidden="true">
   <div class="curtain curtain-left"></div>
   <div class="curtain curtain-right"></div>
@@ -861,9 +967,8 @@ footer {
 
 <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
 
-<!-- HERO -->
+<!-- HERO / COUPLE INTRODUCTION -->
 <header class="hero" id="home">
-
   <div class="hero-content">
 
     <p class="family-line">
@@ -872,10 +977,8 @@ footer {
 
     <div class="ornament">
       <svg viewBox="0 0 150 35" fill="none">
-        <path d="M5 17.5H55M95 17.5H145"
-          stroke="#C79B48" stroke-width="1"/>
-        <path d="M75 3C65 15 65 20 75 32C85 20 85 15 75 3Z"
-          stroke="#C79B48"/>
+        <path d="M5 17.5H55M95 17.5H145" stroke="#C79B48"/>
+        <path d="M75 3C65 15 65 20 75 32C85 20 85 15 75 3Z" stroke="#C79B48"/>
         <circle cx="75" cy="17.5" r="5" stroke="#C79B48"/>
         <circle cx="55" cy="17.5" r="3" fill="#C79B48"/>
         <circle cx="95" cy="17.5" r="3" fill="#C79B48"/>
@@ -887,12 +990,16 @@ footer {
     </p>
 
     <h1>
-      <span>M. Sundarprasad</span>
-      <div class="with">with</div>
-      <span>D. Swathi</span>
+      <span class="name-line groom">M. Sundarprasad</span>
+      <span class="role-label groom-role">The Groom</span>
+
+      <span class="with">with</span>
+
+      <span class="name-line bride">D. Swathi</span>
+      <span class="role-label bride-role">The Bride</span>
     </h1>
 
-    <p class="invite-line">
+    <p class="invite-note">
       A beautiful beginning · A lifetime of love
     </p>
 
@@ -905,12 +1012,10 @@ footer {
   <div class="scroll-indicator">
     SCROLL TO DISCOVER
   </div>
-
 </header>
 
 <!-- INVITATION MESSAGE -->
 <section class="section message-section">
-
   <div class="section-inner message-frame reveal">
 
     <p class="section-label">
@@ -929,28 +1034,66 @@ footer {
     </p>
 
     <p class="section-text">
-      Your presence, love, and blessings would mean
-      a lot to us as we begin this beautiful new chapter
-      of our lives.
+      Your presence, love, and blessings would mean a lot
+      to us as we begin this beautiful new chapter of our lives.
     </p>
 
     <div class="ornament">
       <svg viewBox="0 0 150 35" fill="none">
-        <path d="M5 17.5H55M95 17.5H145"
-          stroke="#C79B48"/>
-        <path d="M75 3C65 15 65 20 75 32C85 20 85 15 75 3Z"
-          stroke="#C79B48"/>
+        <path d="M5 17.5H55M95 17.5H145" stroke="#C79B48"/>
+        <path d="M75 3C65 15 65 20 75 32C85 20 85 15 75 3Z" stroke="#C79B48"/>
         <circle cx="75" cy="17.5" r="5" stroke="#C79B48"/>
       </svg>
     </div>
 
   </div>
+</section>
 
+<!-- COUPLE MILESTONES -->
+<section class="section journey">
+  <div class="section-inner reveal">
+
+    <p class="section-label">
+      A day to remember
+    </p>
+
+    <h2 class="section-title">
+      Our Wedding Celebration
+    </h2>
+
+    <p class="section-text">
+      A few beautiful details to guide you to our special day.
+    </p>
+
+    <div class="journey-grid">
+
+      <article class="journey-card">
+        <div class="journey-number">01</div>
+        <h3>The Groom</h3>
+        <p>M. Sundarprasad</p>
+        <p>Ready to begin a lifetime of togetherness.</p>
+      </article>
+
+      <article class="journey-card">
+        <div class="journey-number">02</div>
+        <h3>The Bride</h3>
+        <p>D. Swathi</p>
+        <p>Ready to begin a beautiful new chapter.</p>
+      </article>
+
+      <article class="journey-card">
+        <div class="journey-number">03</div>
+        <h3>The Wedding Day</h3>
+        <p>Sunday · 22 November 2026</p>
+        <p>Join us as two hearts become one.</p>
+      </article>
+
+    </div>
+  </div>
 </section>
 
 <!-- COUNTDOWN -->
 <section class="section countdown-section">
-
   <div class="section-inner reveal">
 
     <p class="section-label">
@@ -990,16 +1133,13 @@ footer {
     </p>
 
   </div>
-
 </section>
 
 <!-- WEDDING DETAILS -->
 <section class="section event-section" id="event">
-
   <div class="section-inner">
 
     <div class="reveal">
-
       <p class="section-label">
         Save the date
       </p>
@@ -1007,10 +1147,9 @@ footer {
       <h2 class="section-title">
         The Wedding Day
       </h2>
-
     </div>
 
-    <div class="event-card reveal reveal-scale">
+    <div class="event-card reveal">
 
       <p class="section-label">
         Sunday
@@ -1028,10 +1167,8 @@ footer {
 
       <div class="ornament">
         <svg viewBox="0 0 150 35" fill="none">
-          <path d="M5 17.5H55M95 17.5H145"
-            stroke="#C79B48"/>
-          <path d="M75 3C65 15 65 20 75 32C85 20 85 15 75 3Z"
-            stroke="#C79B48"/>
+          <path d="M5 17.5H55M95 17.5H145" stroke="#C79B48"/>
+          <path d="M75 3C65 15 65 20 75 32C85 20 85 15 75 3Z" stroke="#C79B48"/>
           <circle cx="75" cy="17.5" r="5" stroke="#C79B48"/>
         </svg>
       </div>
@@ -1060,14 +1197,11 @@ footer {
       </a>
 
     </div>
-
   </div>
-
 </section>
 
 <!-- CLOSING -->
 <section class="section closing-section">
-
   <div class="section-inner reveal">
 
     <p class="section-label">
@@ -1075,38 +1209,39 @@ footer {
     </p>
 
     <h2 class="section-title">
-      With Love & Gratitude
+      With Love &amp; Gratitude
     </h2>
 
     <div class="gold-line"></div>
 
     <p class="section-text">
-      Relatives & Friends
+      Relatives &amp; Friends
     </p>
 
     <span class="closing-heart">❤️</span>
 
     <p class="closing-names">
       M. Sundarprasad<br>
-      & D. Swathi
+      &amp; D. Swathi
     </p>
 
     <p class="section-text">
-      We look forward to celebrating this special day
-      with you.
+      We look forward to celebrating this special day with you.
     </p>
 
-    <button class="hero-cta" id="shareInvitation"
-      style="opacity:1; animation:none;">
+    <button
+      class="hero-cta"
+      id="shareInvitation"
+      style="opacity:1;animation:none"
+    >
       SHARE INVITATION ↗
     </button>
 
   </div>
-
 </section>
 
 <footer>
-  Made with love by Prasad Anna’s little brother & friend, Sameer Gonde!
+  Made with love by Prasad Anna’s little brother &amp; friend, Sameer Gonde!
 </footer>
 
 <!-- FLOATING BUTTONS -->
@@ -1133,53 +1268,52 @@ footer {
 </div>
 
 <script>
-/* ===================================
-   INTRO CURTAIN ANIMATION
-=================================== */
+/* =====================================
+   CURTAIN INTRO AND AUTOMATIC NAME REVEAL
+===================================== */
 
 const intro = document.getElementById("intro");
+
 const reducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
 
+let introTimer;
+
 function playIntro() {
-  const hero = document.querySelector(".hero");
+  clearTimeout(introTimer);
 
-  // Reset the names so the reveal can replay with the curtains.
-  hero.classList.remove("names-visible");
-  intro.classList.remove("hidden");
-  intro.classList.remove("open");
+  intro.classList.remove("hidden", "open");
+  document.body.classList.remove("intro-finished");
 
-  // Restart the curtain animation cleanly.
+  // Restart the curtain animation
   void intro.offsetWidth;
 
   if (reducedMotion) {
-    hero.classList.add("names-visible");
     intro.classList.add("hidden");
+    document.body.classList.add("intro-finished");
     return;
   }
 
   intro.classList.add("open");
 
-  // Reveal the names automatically as the curtains begin to open.
-  // This is independent of scrolling or IntersectionObserver.
+  // Names begin revealing automatically while the curtains open.
+  // This does not depend on scrolling or swiping.
   setTimeout(() => {
-    hero.classList.add("names-visible");
+    document.body.classList.add("intro-finished");
   }, 350);
 
-  setTimeout(() => {
+  introTimer = setTimeout(() => {
     intro.classList.add("hidden");
   }, 3400);
 }
 
-window.addEventListener("load", () => {
-  playIntro();
-});
+window.addEventListener("load", playIntro);
 
 
-/* ===================================
-   REPLAY BUTTON
-=================================== */
+/* =====================================
+   REPLAY INTRO BUTTON
+===================================== */
 
 document.getElementById("replayIntro")
   .addEventListener("click", () => {
@@ -1189,13 +1323,16 @@ document.getElementById("replayIntro")
       behavior: reducedMotion ? "auto" : "smooth"
     });
 
-    setTimeout(playIntro, reducedMotion ? 0 : 500);
+    setTimeout(
+      playIntro,
+      reducedMotion ? 0 : 450
+    );
   });
 
 
-/* ===================================
+/* =====================================
    VIEW INVITATION BUTTON
-=================================== */
+===================================== */
 
 document.getElementById("viewInvitation")
   .addEventListener("click", () => {
@@ -1204,28 +1341,25 @@ document.getElementById("viewInvitation")
       .scrollIntoView({
         behavior: reducedMotion ? "auto" : "smooth"
       });
-
   });
 
 
-/* ===================================
-   SCROLL REVEAL ANIMATIONS
-=================================== */
+/* =====================================
+   SCROLL REVEAL FOR LOWER SECTIONS
+===================================== */
 
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && !reducedMotion) {
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
 
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
-
           entry.target.classList.add("visible");
-
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
 
       });
@@ -1233,12 +1367,12 @@ if ("IntersectionObserver" in window && !reducedMotion) {
     },
     {
       threshold: 0.12,
-      rootMargin: "0px 0px -45px 0px"
+      rootMargin: "0px 0px -40px 0px"
     }
   );
 
   revealElements.forEach(element => {
-    revealObserver.observe(element);
+    observer.observe(element);
   });
 
 } else {
@@ -1250,16 +1384,16 @@ if ("IntersectionObserver" in window && !reducedMotion) {
 }
 
 
-/* ===================================
+/* =====================================
    WEDDING COUNTDOWN
    22 NOVEMBER 2026, 6:00 AM IST
-=================================== */
+===================================== */
 
 const weddingDate = new Date(
   "2026-11-22T06:00:00+05:30"
 ).getTime();
 
-const countdownElements = {
+const countEls = {
   days: document.getElementById("days"),
   hours: document.getElementById("hours"),
   minutes: document.getElementById("minutes"),
@@ -1268,109 +1402,68 @@ const countdownElements = {
 
 function updateCountdown() {
 
-  const now = Date.now();
-  const distance = weddingDate - now;
+  const distance = weddingDate - Date.now();
 
   if (distance <= 0) {
 
     document.getElementById("countdown").innerHTML =
       '<h2 style="font-family:Great Vibes,cursive;' +
       'font-size:clamp(35px,7vw,60px);' +
-      'color:#fff3df;">The Celebration Has Begun ❤️</h2>';
+      'color:#fff3df">The Celebration Has Begun ❤️</h2>';
 
+    clearInterval(countdownInterval);
     return;
   }
 
-  const days = Math.floor(
-    distance / (1000 * 60 * 60 * 24)
-  );
+  countEls.days.textContent =
+    String(Math.floor(distance / 86400000)).padStart(2, "0");
 
-  const hours = Math.floor(
-    (distance / (1000 * 60 * 60)) % 24
-  );
+  countEls.hours.textContent =
+    String(Math.floor(distance / 3600000) % 24).padStart(2, "0");
 
-  const minutes = Math.floor(
-    (distance / (1000 * 60)) % 60
-  );
+  countEls.minutes.textContent =
+    String(Math.floor(distance / 60000) % 60).padStart(2, "0");
 
-  const seconds = Math.floor(
-    (distance / 1000) % 60
-  );
-
-  countdownElements.days.textContent =
-    String(days).padStart(2, "0");
-
-  countdownElements.hours.textContent =
-    String(hours).padStart(2, "0");
-
-  countdownElements.minutes.textContent =
-    String(minutes).padStart(2, "0");
-
-  countdownElements.seconds.textContent =
-    String(seconds).padStart(2, "0");
+  countEls.seconds.textContent =
+    String(Math.floor(distance / 1000) % 60).padStart(2, "0");
 }
 
 updateCountdown();
 
-const countdownInterval = setInterval(() => {
-
-  updateCountdown();
-
-  if (Date.now() >= weddingDate) {
-    clearInterval(countdownInterval);
-  }
-
-}, 1000);
+const countdownInterval = setInterval(
+  updateCountdown,
+  1000
+);
 
 
-/* ===================================
-   FLOATING PETALS
-=================================== */
+/* =====================================
+   FLOATING PETALS AND GOLDEN SPARKLES
+===================================== */
 
 const petalLayer = document.getElementById("petalLayer");
 
 if (!reducedMotion) {
 
-  const petalCount = window.innerWidth < 600 ? 12 : 24;
+  const count = window.innerWidth < 600 ? 12 : 24;
+  const symbols = ["✿", "❀", "✾", "❁"];
 
-  const petalSymbols = ["✿", "❀", "✾", "❁"];
-
-  for (let i = 0; i < petalCount; i++) {
+  for (let i = 0; i < count; i++) {
 
     const petal = document.createElement("span");
 
     petal.className = "petal";
 
     petal.textContent =
-      petalSymbols[
-        Math.floor(Math.random() * petalSymbols.length)
-      ];
+      symbols[Math.floor(Math.random() * symbols.length)];
 
     petal.style.left = Math.random() * 100 + "%";
-
-    petal.style.fontSize =
-      (10 + Math.random() * 15) + "px";
-
-    petal.style.animationDuration =
-      (12 + Math.random() * 18) + "s";
-
-    petal.style.animationDelay =
-      (-Math.random() * 25) + "s";
-
-    petal.style.opacity =
-      (0.2 + Math.random() * 0.5).toFixed(2);
+    petal.style.fontSize = 10 + Math.random() * 15 + "px";
+    petal.style.animationDuration = 12 + Math.random() * 18 + "s";
+    petal.style.animationDelay = -Math.random() * 25 + "s";
+    petal.style.opacity = (0.2 + Math.random() * 0.5).toFixed(2);
 
     petalLayer.appendChild(petal);
   }
-
-}
-
-
-/* ===================================
-   GOLDEN SPARKLES
-=================================== */
-
-if (!reducedMotion) {
 
   const sparkleCount = window.innerWidth < 600 ? 8 : 16;
 
@@ -1382,32 +1475,23 @@ if (!reducedMotion) {
 
     sparkle.style.left = Math.random() * 100 + "%";
     sparkle.style.top = Math.random() * 100 + "%";
-
-    sparkle.style.animationDelay =
-      Math.random() * 4 + "s";
-
-    sparkle.style.animationDuration =
-      (2 + Math.random() * 3) + "s";
+    sparkle.style.animationDelay = Math.random() * 4 + "s";
+    sparkle.style.animationDuration = 2 + Math.random() * 3 + "s";
 
     petalLayer.appendChild(sparkle);
   }
-
 }
 
 
-/* ===================================
+/* =====================================
    BACK TO TOP BUTTON
-=================================== */
+===================================== */
 
 const backTop = document.getElementById("backTop");
 
 window.addEventListener("scroll", () => {
 
-  if (window.scrollY > 500) {
-    backTop.classList.add("show");
-  } else {
-    backTop.classList.remove("show");
-  }
+  backTop.classList.toggle("show", window.scrollY > 500);
 
 }, { passive: true });
 
@@ -1421,19 +1505,20 @@ backTop.addEventListener("click", () => {
 });
 
 
-/* ===================================
+/* =====================================
    SHARE INVITATION
-=================================== */
+===================================== */
 
 document.getElementById("shareInvitation")
   .addEventListener("click", async () => {
 
-    const shareData = {
+    const data = {
       title: "M. Sundarprasad & D. Swathi",
       text:
         "You are warmly invited to the wedding of " +
         "M. Sundarprasad & D. Swathi on " +
-        "Sunday, 22 November 2026, at Mahalakshmi Mahal, Kovilpatti.",
+        "Sunday, 22 November 2026, at " +
+        "Mahalakshmi Mahal, Kovilpatti.",
       url: window.location.href
     };
 
@@ -1441,7 +1526,7 @@ document.getElementById("shareInvitation")
 
       if (navigator.share) {
 
-        await navigator.share(shareData);
+        await navigator.share(data);
 
       } else if (navigator.clipboard) {
 
@@ -1470,42 +1555,6 @@ document.getElementById("shareInvitation")
 
   });
 
-
-/* ===================================
-   PARALLAX EFFECT
-=================================== */
-
-if (!reducedMotion && window.innerWidth > 768) {
-
-  let ticking = false;
-
-  window.addEventListener("scroll", () => {
-
-    if (ticking) return;
-
-    ticking = true;
-
-    requestAnimationFrame(() => {
-
-      const hero = document.querySelector(".hero");
-      const scrollY = window.scrollY;
-
-      if (scrollY < window.innerHeight) {
-
-        hero.style.backgroundPosition =
-          `center ${scrollY * 0.15}px`;
-
-      }
-
-      ticking = false;
-
-    });
-
-  }, { passive: true });
-
-}
-
 </script>
-
 </body>
 </html>
