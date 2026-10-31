@@ -327,11 +327,16 @@ a {
 .hero h1 span {
   display: block;
   opacity: 0;
-  animation: nameReveal 1.8s 3.4s cubic-bezier(.2,.8,.2,1) forwards;
+  transform: translateY(45px) scale(.96);
+  filter: blur(10px);
 }
 
-.hero h1 span:nth-child(2) {
-  animation-delay: 4s;
+.hero.names-visible h1 span {
+  animation: nameReveal 1.8s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+.hero.names-visible h1 span:nth-of-type(2) {
+  animation-delay: .6s;
 }
 
 @keyframes nameReveal {
@@ -353,7 +358,10 @@ a {
   font-size: clamp(30px, 5vw, 46px);
   margin: 15px 0;
   opacity: 0;
-  animation: fadeIn 1.4s 3.8s forwards;
+}
+
+.hero.names-visible .with {
+  animation: fadeIn 1.4s .25s forwards;
 }
 
 .hero .invite-line {
@@ -1135,19 +1143,29 @@ const reducedMotion = window.matchMedia(
 ).matches;
 
 function playIntro() {
+  const hero = document.querySelector(".hero");
 
+  // Reset the names so the reveal can replay with the curtains.
+  hero.classList.remove("names-visible");
   intro.classList.remove("hidden");
   intro.classList.remove("open");
 
-  // Restart CSS animation
+  // Restart the curtain animation cleanly.
   void intro.offsetWidth;
 
   if (reducedMotion) {
+    hero.classList.add("names-visible");
     intro.classList.add("hidden");
     return;
   }
 
   intro.classList.add("open");
+
+  // Reveal the names automatically as the curtains begin to open.
+  // This is independent of scrolling or IntersectionObserver.
+  setTimeout(() => {
+    hero.classList.add("names-visible");
+  }, 350);
 
   setTimeout(() => {
     intro.classList.add("hidden");
